@@ -9,12 +9,15 @@ from .serializers import TransactionTypeSerializer
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from .models import CustomUser
-from .serializers import CustomUserSerializer
+from .models import CustomUser,AdminUser
+from .serializers import CustomUserSerializer,AdminUserSerializer
 import logging
 logger = logging.getLogger(__name__)
 
-
+class AdminUserViewSet(viewsets.ModelViewSet):
+    queryset = AdminUser.objects.all()
+    serializer_class = AdminUserSerializer
+    lookup_field = 'user_id'
 
 class CustomUserViewSet(viewsets.ModelViewSet):
     queryset = CustomUser.objects.all()

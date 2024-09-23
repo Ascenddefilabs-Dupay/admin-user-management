@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import CustomUser,WalletAdminActions
+from .models import CustomUser,WalletAdminActions,AdminUser
 from datetime import datetime
 from .models import TransactionType,TransactionUser
 
@@ -7,6 +7,10 @@ from .models import TransactionType,TransactionUser
 class CustomUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = CustomUser
+        fields = '__all__'
+class AdminUserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = AdminUser
         fields = '__all__'
 class WalletAdminActionsSerializer(serializers.ModelSerializer):
     admins_actions_date = serializers.SerializerMethodField()
@@ -22,7 +26,7 @@ class TransactionTypeSerializer(serializers.ModelSerializer):
     transaction_timestamp = serializers.SerializerMethodField()
     class Meta:
         model = TransactionType
-        fields = ['transaction_id', 'transaction_timestamp', 'transaction_type', 'transaction_amount','transaction_status']
+        fields = '__all__'
     def get_transaction_timestamp(self, obj):
         # Convert datetime to date
         if isinstance(obj.transaction_timestamp, datetime):
@@ -32,7 +36,7 @@ class TransactionSerializer(serializers.ModelSerializer):
     user = serializers.SerializerMethodField()
     class Meta:
         model = TransactionUser
-        fields = '_all_'
+        fields = '__all__'
     def get_user(self, obj):
         users = CustomUser.objects.filter(user_phone_number=obj.user_phone_number)
         if users.exists():
