@@ -90,7 +90,7 @@ class CurrencyConverterFiatWallet(models.Model):
         managed=False
 class WalletAdminActions(models.Model):
     id=models.CharField(primary_key=True)
-    admins_actions_date=models.DateField()
+    admins_actions_date=models.DateField(default=timezone.now)
     admins_actions_username=models.CharField()
     admins_actions=models.CharField()
     admins_actions_name=models.CharField()
