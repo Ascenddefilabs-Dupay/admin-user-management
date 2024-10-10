@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'auditlogs',
     'createadmin',
     'transactions',
+    'wallet_management',
     'rest_framework',
     'corsheaders',
     'cloudinary',
@@ -129,7 +130,10 @@ DATABASES = {
         'PASSWORD': 'lPVRIuSyVCJqfmghd7ckBw',
         'HOST': 'chill-dibbler-5989.7s5.aws-ap-south-1.cockroachlabs.cloud',
         'PORT': '26257',
-        'sslmode': 'disable'
+        # 'sslmode': 'disable'
+        'OPTIONS': {
+            'sslmode': 'require',
+        },
     }
 }
 CLOUDINARY_STORAGE = {
