@@ -37,3 +37,12 @@ class TransactionSerializer(serializers.ModelSerializer):
                 # 'user_profile_photo': user.user_profile_photo,
             }
         return None
+# transactions/serializers.py
+
+from rest_framework import serializers
+from .models import FiatWallet
+
+class FiatWalletSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = FiatWallet
+        fields = '__all__'  # Specify the fields you want to serialize
