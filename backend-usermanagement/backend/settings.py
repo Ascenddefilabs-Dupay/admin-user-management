@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-v@n7e(y##y#pn6p+x49fxqdj#+p(0608*tvp%3$)=!lp#to*5k
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['https://admin-user-management-255574993735.asia-south1.run.app/']
 
 # Application definition
 
@@ -130,10 +130,7 @@ DATABASES = {
         'PASSWORD': 'lPVRIuSyVCJqfmghd7ckBw',
         'HOST': 'chill-dibbler-5989.7s5.aws-ap-south-1.cockroachlabs.cloud',
         'PORT': '26257',
-        # 'sslmode': 'disable'
-        'OPTIONS': {
-            'sslmode': 'require',
-        },
+        'sslmode': 'disable'
     }
 }
 CLOUDINARY_STORAGE = {
